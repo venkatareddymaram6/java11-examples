@@ -5,7 +5,7 @@ node('JDK11-MVN3.8.4') {
     
 }
     stage('build'){
-       sh '/usr/local/apache-maven-3.8.4/bin/mvn clen packae'
+       sh '/usr/local/apache-maven-3.8.4/bin/mvn clean packae'
     }
 
     stage('archieve artifacts'){
