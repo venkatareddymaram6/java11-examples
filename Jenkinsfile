@@ -1,9 +1,12 @@
 pipeline{
     agent { label 'JDK11-MVN3.8.4' }
      triggers { 
-       cron('45 11 * * 1-5')
-       upstream(upstreamProjects: 'started project', threshold: hudson.model.Result.SUCCESS)
+       cron('45 11 * * 1-5') }
+     triggers { 
+    
+   upstream(upstreamProjects: 'started project', threshold: hudson.model.Result.SUCCESS)
          }
+    
      stages{
         stage('SCM') {
             steps{
