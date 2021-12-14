@@ -1,6 +1,7 @@
 node('JDK11-MVN3.8.4') {
 
     properties([pipelineTriggers([upstream('started project, ')])])
+    properties([pipelineTriggers([cron('0 */3 * * 0,6')])])
 
     stage('git') {
         git 'https://github.com/venkatareddymaram6/java11-examples.git'
