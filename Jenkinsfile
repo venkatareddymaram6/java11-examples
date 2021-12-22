@@ -1,11 +1,9 @@
 node('JDK11-MVN3.8.4') {
 
-    properties([pipelineTriggers([upstream('started project, ')])])
-    properties([pipelineTriggers([cron('0 */3 * * 0,6')])])
-    properties([pipelineTriggers([pollSCM('*/5 * * * *')])])
+ properties([parameters([choice(choices: ['master', 'scripted', 'declarative'], name: 'BRANCH_TO_BUILD')]), pipelineTriggers([pollSCM('*/5 * * * *')])])
 
     stage('git') {
-        git 'https://github.com/venkatareddymaram6/java11-examples.git'
+        git url: 'https://github.com/venkatareddymaram6/java11-examples.git'. branch: ${params.BRANCH_TO_BUILD}
     
 }
     stage('build'){
