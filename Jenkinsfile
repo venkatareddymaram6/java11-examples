@@ -1,8 +1,7 @@
 pipeline{
     agent { label 'JDK11-MVN3.8.5-JAVA11' }
-     triggers { 
-         triggers { upstream(upstreamProjects: 'starter-project', threshold: hudson.model.Result.SUCCESS) }
-         }
+
+    triggers { upstream(upstreamProjects: 'starter-project', threshold: hudson.model.Result.SUCCESS) }
     
      stages{
         stage('SCM') {
