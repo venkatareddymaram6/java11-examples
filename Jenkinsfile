@@ -1,7 +1,6 @@
 node('JDK11-MVN3.8.4') {
 
- properties([parameters([choice(choices: ['master', 'scripted', 'declarative'], name: 'BRANCH_TO_BUILD')]), pipelineTriggers([pollSCM('*/5 * * * *')])])
-
+ properties([pipelineTriggers([upstream('starter-project')])])  
     stage('git') {
         git url: 'https://github.com/venkatareddymaram6/java11-examples.git', branch: "${params.BRANCH_TO_BUILD}"
     
