@@ -2,6 +2,7 @@ pipeline{
     agent { label 'JDK11-MVN3.8.5-JAVA11' }
 
     triggers { 
+        
         cron('45 23 * * *') 
         pollSCM('*/5 * * * 1-5') }
     
@@ -9,6 +10,7 @@ pipeline{
         stage('SCM') {
             steps{
                 git 'https://github.com/venkatareddymaram6/java11-examples.git'
+                input message: "want to continue", submitter:"qtdev"
                 
             }
 
