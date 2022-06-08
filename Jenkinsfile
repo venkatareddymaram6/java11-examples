@@ -7,7 +7,7 @@ pipeline{
         stage('SCM') {
             steps{
                 git 'https://github.com/venkatareddymaram6/java11-examples.git'
-                input message: 'continue to next step'
+                
             }
 
         }
