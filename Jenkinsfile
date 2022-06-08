@@ -1,4 +1,4 @@
-node('JDK11-MVN3.8.4') {
+node('JDK11-MVN3.8.5-JAVA11') {
 
  properties([pipelineTriggers([upstream('starter-project')])])  
     stage('git') {
