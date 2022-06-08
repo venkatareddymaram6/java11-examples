@@ -2,7 +2,7 @@ node('JDK11-MVN3.8.5-JAVA11') {
 
  properties([pipelineTriggers([upstream('starter-project')])])  
     stage('git') {
-        git url: 'https://github.com/venkatareddymaram6/java11-examples.git', branch: "${params.BRANCH_TO_BUILD}"
+         git branch: 'scripted', url: 'https://github.com/venkatareddymaram6/java11-examples.git'
     
 }
     stage('build'){
